@@ -1,29 +1,39 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Tahoma', sans-serif;
     text-align: center;
     direction: rtl;
-    background-color: #f0f8ff;
-    color: #333;
+    background: linear-gradient(135deg, #1e90ff, #00fa9a);
+    color: #ffffff;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .container {
-    max-width: 600px;
-    margin: 100px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333333;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
   }
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: #1e90ff;
     margin-bottom: 20px;
   }
   p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
   }
   .countdown {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #007bff;
-  }  
+    color: #00fa9a;
+    margin-top: 15px;
+  }
+  
