@@ -48,10 +48,14 @@ body {
     background-color: #f0f8ff;
   }
   
-  .countdown {
+  .countdown-label {
     font-weight: bold;
-    font-size: 1.3rem;
     color: #1e90ff;
-    margin: 5px 0;
+  }
+  
+  .countdown {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
   }
   

@@ -11,13 +11,21 @@
     <h1>روزشمار کنکور</h1>
     <div class="countdown-section">
       <h2>کنکور اردیبهشت</h2>
-      <p id="countdown-may">...</p>
-      <p id="time-remaining-may"></p>
+      <div id="countdown-may">
+        <div><span class="countdown-label">روز:</span> <span id="days-may">...</span></div>
+        <div><span class="countdown-label">ساعت:</span> <span id="hours-may">...</span></div>
+        <div><span class="countdown-label">دقیقه:</span> <span id="minutes-may">...</span></div>
+        <div><span class="countdown-label">ثانیه:</span> <span id="seconds-may">...</span></div>
+      </div>
     </div>
     <div class="countdown-section">
       <h2>کنکور تیر</h2>
-      <p id="countdown-july">...</p>
-      <p id="time-remaining-july"></p>
+      <div id="countdown-july">
+        <div><span class="countdown-label">روز:</span> <span id="days-july">...</span></div>
+        <div><span class="countdown-label">ساعت:</span> <span id="hours-july">...</span></div>
+        <div><span class="countdown-label">دقیقه:</span> <span id="minutes-july">...</span></div>
+        <div><span class="countdown-label">ثانیه:</span> <span id="seconds-july">...</span></div>
+      </div>
     </div>
   </div>
 
@@ -35,23 +43,10 @@
       const minutesMay = Math.floor((diffMay % (1000 * 60 * 60)) / (1000 * 60));
       const secondsMay = Math.floor((diffMay % (1000 * 60)) / 1000);
 
-      const countdownMayElement = document.getElementById("countdown-may");
-      const timeRemainingMayElement = document.getElementById("time-remaining-may");
-
-      if (diffMay > 0) {
-        countdownMayElement.textContent = `${daysMay} روز تا کنکور اردیبهشت باقی مانده است.`;
-        timeRemainingMayElement.innerHTML = `
-          <div class="countdown">${hoursMay} ساعت</div>
-          <div class="countdown">${minutesMay} دقیقه</div>
-          <div class="countdown">${secondsMay} ثانیه</div>
-        `;
-      } else if (diffMay <= 0 && diffMay > -86400000) {
-        countdownMayElement.textContent = "امروز کنکور اردیبهشت است!";
-        timeRemainingMayElement.textContent = "موفق باشید!";
-      } else {
-        countdownMayElement.textContent = "کنکور اردیبهشت گذشته است.";
-        timeRemainingMayElement.textContent = "";
-      }
+      document.getElementById("days-may").textContent = daysMay > 0 ? daysMay : "0";
+      document.getElementById("hours-may").textContent = hoursMay > 0 ? hoursMay : "0";
+      document.getElementById("minutes-may").textContent = minutesMay > 0 ? minutesMay : "0";
+      document.getElementById("seconds-may").textContent = secondsMay > 0 ? secondsMay : "0";
 
       // July exam
       const diffJuly = julyExamDate - now;
@@ -60,23 +55,10 @@
       const minutesJuly = Math.floor((diffJuly % (1000 * 60 * 60)) / (1000 * 60));
       const secondsJuly = Math.floor((diffJuly % (1000 * 60)) / 1000);
 
-      const countdownJulyElement = document.getElementById("countdown-july");
-      const timeRemainingJulyElement = document.getElementById("time-remaining-july");
-
-      if (diffJuly > 0) {
-        countdownJulyElement.textContent = `${daysJuly} روز تا کنکور تیر باقی مانده است.`;
-        timeRemainingJulyElement.innerHTML = `
-          <div class="countdown">${hoursJuly} ساعت</div>
-          <div class="countdown">${minutesJuly} دقیقه</div>
-          <div class="countdown">${secondsJuly} ثانیه</div>
-        `;
-      } else if (diffJuly <= 0 && diffJuly > -86400000) {
-        countdownJulyElement.textContent = "امروز کنکور تیر است!";
-        timeRemainingJulyElement.textContent = "موفق باشید!";
-      } else {
-        countdownJulyElement.textContent = "کنکور تیر گذشته است.";
-        timeRemainingJulyElement.textContent = "";
-      }
+      document.getElementById("days-july").textContent = daysJuly > 0 ? daysJuly : "0";
+      document.getElementById("hours-july").textContent = hoursJuly > 0 ? hoursJuly : "0";
+      document.getElementById("minutes-july").textContent = minutesJuly > 0 ? minutesJuly : "0";
+      document.getElementById("seconds-july").textContent = secondsJuly > 0 ? secondsJuly : "0";
     }
 
     setInterval(updateCountdown, 1000);
