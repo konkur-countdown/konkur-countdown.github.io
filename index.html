@@ -10,39 +10,41 @@
   <div class="container">
     <h1>روزشمار کنکور</h1>
     <p id="countdown-may">...</p>
-    <p id="countdown-july">...</p>
+    <p id="time-remaining"></p>
   </div>
 
   <script>
-    const mayExamDate = new Date("2025-05-22");
-    const julyExamDate = new Date("2025-07-18");
+    const mayExamDate = new Date("2025-05-22T08:00:00+03:30");
 
     function updateCountdown() {
-      const today = new Date();
-      
-      const daysToMay = Math.ceil((mayExamDate - today) / (1000 * 60 * 60 * 24));
-      const daysToJuly = Math.ceil((julyExamDate - today) / (1000 * 60 * 60 * 24));
+      const now = new Date();
+      const diff = mayExamDate - now;
 
-      const mayCountdownEl = document.getElementById("countdown-may");
-      const julyCountdownEl = document.getElementById("countdown-july");
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      if (daysToMay > 0) {
-        mayCountdownEl.textContent = `${daysToMay} روز تا کنکور اردیبهشت باقی مانده است.`;
-      } else if (daysToMay === 0) {
-        mayCountdownEl.textContent = "امروز کنکور اردیبهشت است!";
+      const countdownElement = document.getElementById("countdown-may");
+      const timeElement = document.getElementById("time-remaining");
+
+      if (diff > 0) {
+        countdownElement.textContent = `${days} روز تا کنکور باقی مانده است.`;
+        timeElement.innerHTML = `
+          <div class="countdown">${hours} ساعت</div>
+          <div class="countdown">${minutes} دقیقه</div>
+          <div class="countdown">${seconds} ثانیه</div>
+        `;
+      } else if (diff <= 0 && diff > -86400000) {
+        countdownElement.textContent = "امروز کنکور است!";
+        timeElement.textContent = "موفق باشید!";
       } else {
-        mayCountdownEl.textContent = "کنکور اردیبهشت گذشته است.";
-      }
-
-      if (daysToJuly > 0) {
-        julyCountdownEl.textContent = `${daysToJuly} روز تا کنکور تیر باقی مانده است.`;
-      } else if (daysToJuly === 0) {
-        julyCountdownEl.textContent = "امروز کنکور تیر است!";
-      } else {
-        julyCountdownEl.textContent = "کنکور تیر گذشته است.";
+        countdownElement.textContent = "کنکور گذشته است.";
+        timeElement.textContent = "";
       }
     }
 
+    setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
 </body>
