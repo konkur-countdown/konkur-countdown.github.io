@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>روزشمار کنکور</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      direction: rtl;
+      background-color: #f0f8ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    .countdown {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>روزشمار کنکور</h1>
+    <p id="countdown-may">...</p>
+    <p id="countdown-july">...</p>
+  </div>
+
+  <script>
+    const mayExamDate = new Date("2025-05-22");
+    const julyExamDate = new Date("2025-07-18");
+
+    function updateCountdown() {
+      const today = new Date();
+      
+      const daysToMay = Math.ceil((mayExamDate - today) / (1000 * 60 * 60 * 24));
+      const daysToJuly = Math.ceil((julyExamDate - today) / (1000 * 60 * 60 * 24));
+
+      const mayCountdownEl = document.getElementById("countdown-may");
+      const julyCountdownEl = document.getElementById("countdown-july");
+
+      if (daysToMay > 0) {
+        mayCountdownEl.textContent = `${daysToMay} روز تا کنکور اردیبهشت باقی مانده است.`;
+      } else if (daysToMay === 0) {
+        mayCountdownEl.textContent = "امروز کنکور اردیبهشت است!";
+      } else {
+        mayCountdownEl.textContent = "کنکور اردیبهشت گذشته است.";
+      }
+
+      if (daysToJuly > 0) {
+        julyCountdownEl.textContent = `${daysToJuly} روز تا کنکور تیر باقی مانده است.`;
+      } else if (daysToJuly === 0) {
+        julyCountdownEl.textContent = "امروز کنکور تیر است!";
+      } else {
+        julyCountdownEl.textContent = "کنکور تیر گذشته است.";
+      }
+    }
+
+    updateCountdown();
+  </script>
+</body>
+</html>
