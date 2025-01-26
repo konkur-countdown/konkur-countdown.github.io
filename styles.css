@@ -11,9 +11,10 @@ body {
     justify-content: center;
     align-items: center;
   }
+  
   .container {
-    max-width: 500px;
-    background: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.9);
     color: #333333;
     margin: 20px;
     padding: 30px;
@@ -21,19 +22,36 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
   }
+  
   h1 {
     font-size: 2.5rem;
     color: #1e90ff;
     margin-bottom: 20px;
   }
+  
+  h2 {
+    font-size: 1.8rem;
+    color: #00fa9a;
+    margin-bottom: 15px;
+  }
+  
   p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
   }
+  
+  .countdown-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #1e90ff;
+    border-radius: 10px;
+    background-color: #f0f8ff;
+  }
+  
   .countdown {
     font-weight: bold;
-    font-size: 1.5rem;
-    color: #00fa9a;
-    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #1e90ff;
+    margin: 5px 0;
   }
   
