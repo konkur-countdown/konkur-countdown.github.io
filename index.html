@@ -11,7 +11,7 @@
     <h1>روزشمار کنکور</h1>
     <div class="countdown-section">
       <h2>کنکور اردیبهشت</h2>
-      <div id="countdown-may">
+      <div id="countdown-may" class="countdown-grid">
         <div><span class="countdown-label">روز:</span> <span id="days-may">...</span></div>
         <div><span class="countdown-label">ساعت:</span> <span id="hours-may">...</span></div>
         <div><span class="countdown-label">دقیقه:</span> <span id="minutes-may">...</span></div>
@@ -20,7 +20,7 @@
     </div>
     <div class="countdown-section">
       <h2>کنکور تیر</h2>
-      <div id="countdown-july">
+      <div id="countdown-july" class="countdown-grid">
         <div><span class="countdown-label">روز:</span> <span id="days-july">...</span></div>
         <div><span class="countdown-label">ساعت:</span> <span id="hours-july">...</span></div>
         <div><span class="countdown-label">دقیقه:</span> <span id="minutes-july">...</span></div>
@@ -30,13 +30,12 @@
   </div>
 
   <script>
-    const mayExamDate = new Date("2025-05-22T08:00:00+03:30"); // ۲ خرداد ۱۴۰۴
-    const julyExamDate = new Date("2025-07-18T08:00:00+03:30"); // ۲۷ تیر ۱۴۰۴
+    const mayExamDate = new Date("2025-05-22T08:00:00+03:30");
+    const julyExamDate = new Date("2025-07-18T08:00:00+03:30");
 
     function updateCountdown() {
       const now = new Date();
 
-      // May exam
       const diffMay = mayExamDate - now;
       const daysMay = Math.floor(diffMay / (1000 * 60 * 60 * 24));
       const hoursMay = Math.floor((diffMay % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -48,7 +47,6 @@
       document.getElementById("minutes-may").textContent = minutesMay > 0 ? minutesMay : "0";
       document.getElementById("seconds-may").textContent = secondsMay > 0 ? secondsMay : "0";
 
-      // July exam
       const diffJuly = julyExamDate - now;
       const daysJuly = Math.floor(diffJuly / (1000 * 60 * 60 * 24));
       const hoursJuly = Math.floor((diffJuly % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
